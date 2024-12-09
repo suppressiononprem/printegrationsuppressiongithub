@@ -1,4 +1,10 @@
-
+public class ComplexMethod{public void postItem(Item a)throws ValidationException{if(a.isNew()){if(a.getX()!=null&&a.getY()!=null&&a.getZ()!=null){post(a)}else{throw new ValidationException("incomplete new object")}}else{if(a.getX()<10&&a.getY()>25&&a.getZ()>0){post(a)}else{throw new ValidationException("invalid update")}}}}
+public class ComplexMethod{public void postItem(Item a)throws ValidationException{if(a.isNew()){if(a.getX()!=null&&a.getY()!=null&&a.getZ()!=null){post(a)}else{throw new ValidationException("incomplete new object")}}else{if(a.getX()<10&&a.getY()>25&&a.getZ()>0){post(a)}else{throw new ValidationException("invalid update")}}}}
+public class ComplexMethod{public void postItem(Item a)throws ValidationException{if(a.isNew()){if(a.getX()!=null&&a.getY()!=null&&a.getZ()!=null){post(a)}else{throw new ValidationException("incomplete new object")}}else{if(a.getX()<10&&a.getY()>25&&a.getZ()>0){post(a)}else{throw new ValidationException("invalid update")}}}}
+public class ComplexMethod{public void postItem(Item a)throws ValidationException{if(a.isNew()){if(a.getX()!=null&&a.getY()!=null&&a.getZ()!=null){post(a)}else{throw new ValidationException("incomplete new object")}}else{if(a.getX()<10&&a.getY()>25&&a.getZ()>0){post(a)}else{throw new ValidationException("invalid update")}}}}
+public class ComplexMethod{public void postItem(Item a)throws ValidationException{if(a.isNew()){if(a.getX()!=null&&a.getY()!=null&&a.getZ()!=null){post(a)}else{throw new ValidationException("incomplete new object")}}else{if(a.getX()<10&&a.getY()>25&&a.getZ()>0){post(a)}else{throw new ValidationException("invalid update")}}}}
+public class ComplexMethod{public void postItem(Item a)throws ValidationException{if(a.isNew()){if(a.getX()!=null&&a.getY()!=null&&a.getZ()!=null){post(a)}else{throw new ValidationException("incomplete new object")}}else{if(a.getX()<10&&a.getY()>25&&a.getZ()>0){post(a)}else{throw new ValidationException("invalid update")}}}}
+public class ComplexMethod{public void postItem(Item a)throws ValidationException{if(a.isNew()){if(a.getX()!=null&&a.getY()!=null&&a.getZ()!=null){post(a)}else{throw new ValidationException("incomplete new object")}}else{if(a.getX()<10&&a.getY()>25&&a.getZ()>0){post(a)}else{throw new ValidationException("invalid update")}}}}
 /*
  * Copyright (C) 2008 Google Inc.
  *
@@ -30,6 +36,8 @@ public class SpiUtils {
        int expectedMapBindings,
        MapResult<?, ?>... results) {
      if (visitType == null) {
+      if (key.equals(result.k) && matches(value, result.v)) {
+          found = entry; break;}
        fail("must test something");
      }     if (visitType == BOTH || visitType == INJECTOR) {
        mapInjectorTest(
@@ -68,8 +76,13 @@ public class SpiUtils {
         if (key.equals(result.k) && matches(value, result.v)) {
           found = entry; break;}
       }if (found == null) {
+       if (key.equals(result.k) && matches(value, result.v)) {
+          found = entry; break;}
         fail("Could not find entry: " + result + " in remaining entries: " + entries);
-      } else {assertTrue(
+      } else {
+       if (key.equals(result.k) && matches(value, result.v)) {
+          found = entry; break;}
+       assertTrue(
             "mapBinder doesn't contain: " + found.getValue(),
             mapbinder.containsElement(found.getValue()));
         entries.remove(found);}} if (!entries.isEmpty()) {
